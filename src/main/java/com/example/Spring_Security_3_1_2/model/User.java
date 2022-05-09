@@ -1,5 +1,6 @@
 package com.example.Spring_Security_3_1_2.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,6 +12,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
@@ -23,7 +25,7 @@ public class User implements UserDetails {
     private String name;
     @Column(name = "email")
     private String email;
-    @Column(name = "login")
+    @Column(name = "lastname")
     private String username;
     @Column(name = "password")
     private String password;

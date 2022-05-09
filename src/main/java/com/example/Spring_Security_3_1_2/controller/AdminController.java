@@ -45,8 +45,7 @@ public class AdminController {
 
     @PostMapping
     public String add(@ModelAttribute("user") User user,
-                      @RequestParam(value = "nameRoles") String[]roles) {
-     //   setRolesFromRequest(user, roleAdmin, roleUser);
+                      @RequestParam(value = "nameRoles") String[] roles) {
         user.setRoles(getSetOfRoles(roles));
         userService.addUser(user);
         return "redirect:/admin/";
@@ -62,8 +61,7 @@ public class AdminController {
     public String edit(@ModelAttribute("user") User user,
                        ModelMap model,
                        @PathVariable("id") int id,
-                       @RequestParam(value = "editRoles") String[]roles) {
-       // setRolesFromRequest(user, roleAdmin, roleUser);
+                       @RequestParam(value = "editRoles") String[] roles) {
         user.setRoles(getSetOfRoles(roles));
         model.addAttribute("roles", roleService.findAllRoles());
         model.addAttribute("user", userService.getUserById(id));
@@ -73,8 +71,7 @@ public class AdminController {
     @PostMapping("/{id}")
     public String update(@ModelAttribute("user") User user,
                          @PathVariable("id") long id,
-                         @RequestParam(value = "editRoles") String[]roles) {
-      //  setRolesFromRequest(user, roleAdmin, roleUser);
+                         @RequestParam(value = "editRoles") String[] roles) {
         user.setRoles(getSetOfRoles(roles));
         userService.updateUser(user);
         return "redirect:/admin/";
@@ -87,5 +84,7 @@ public class AdminController {
         }
         return (HashSet) roleSet;
     }
-    }
+
+}
+
 

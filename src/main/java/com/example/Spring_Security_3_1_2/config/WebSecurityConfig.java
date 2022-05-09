@@ -1,3 +1,4 @@
+
 package com.example.Spring_Security_3_1_2.config;
 
 import com.example.Spring_Security_3_1_2.service.UserDetailServiceImpl;
@@ -30,6 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
+                .antMatchers("/api/**").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().hasAnyRole("ADMIN", "USER")
                 .and()

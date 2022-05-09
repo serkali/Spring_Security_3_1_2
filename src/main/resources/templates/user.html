@@ -74,14 +74,14 @@
                         <th scope="col">Role</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr th:each="msg : ${user}">
+                    <tbody id="getOneUser">
+                   <!-- <tr th:each="msg : ${user}">
                         <td th:text="${msg.getId()}"></td>
                         <td th:text="${msg.getName()}"></td>
                         <td th:text="${msg.getUsername()}"></td>
                         <td th:text="${msg.getEmail()}"></td>
-                        <td><span th:each="role : ${msg.getRoles()}" th:text="${roles} + ' '"></span></td>
-                    </tr>
+                        <td><span th:each="role : ${msg.getRoles()}" th:text="${roles} + ' '"></span></td>-->
+                    <!--</tr>-->
                     </tbody>
                 </table>
             </div>
@@ -89,4 +89,5 @@
     </div>
 </div>
 </body>
+<script src = "js/user.js"></script>
 </html>
